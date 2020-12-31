@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito" );
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
+
+
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:linear-gradient(#FFB2B7, #cc5763 , #ef8f99);
+  overflow: hidden;
+}
+
+
+* {
+  font-family: 'Nerko One', cursive;
+  text-align: center;
+}
+h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size:3.5em;
+  color:#4b7a78;
+  text-shadow: 15px 8px #cbdbce;
+  animation-name: example;
+  animation-duration:20s ;
+}
+@keyframes example {
+  from {color: #FE5D18;}
+  to {color: #44AF87;}
+}
+
+h2:hover{
+  color: #44AF87;
+}
+p {
+  padding: 0px 10%;
+  font-size: 1.8em;
+  line-height: 1.4;
+}
+
+
+header,
+footer {
+  text-align: center;
+}
+
+main {
+  /* height: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#card {
+  position: relative;
+  height: 60vh;
+  width: 40vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* box-shadow: 0px 0px 10px rgba(0,0,0,0.4); */
+}
+
+.side {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.front {
+  background: url("https://scontent.fdad5-1.fna.fbcdn.net/v/t1.0-9/132832833_414215153156203_6607902078235068530_n.jpg?_nc_cat=108&ccb=2&_nc_sid=730e14&_nc_ohc=y4voBddYd-MAX8aTMcY&_nc_ht=scontent.fdad5-1.fna&oh=d3df22fbbbe96e5d5e5c5ac4feaef293&oe=6011E66A");
+  background-repeat: no-repeat;
+  background-size: auto; 
+  display: flex;
+  background-color: #252f38;
+  color:rgb(224, 156, 29);
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg);
+  transform-style: preserve-3d;
+  opacity: 1;
+  transition: all 0.75s linear;
+}
+
+#card.turned > .front {
+  opacity: 0;
+  transform: rotateX(80deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.back {
+  
+  background: url("https://scontent.fdad5-1.fna.fbcdn.net/v/t1.0-9/132832833_414215153156203_6607902078235068530_n.jpg?_nc_cat=108&ccb=2&_nc_sid=730e14&_nc_ohc=y4voBddYd-MAX8aTMcY&_nc_ht=scontent.fdad5-1.fna&oh=d3df22fbbbe96e5d5e5c5ac4feaef293&oe=6011E66A");
+  background-repeat: no-repeat;
+  background-size: auto;
+  position: absolute;
+  left: 0;
+  display: flex;
+  background-color: #ffd5bf;
+  color: #212121;
+  transform: rotateX(80deg) rotateY(80deg) rotateZ(180deg);
+  transform-style: preserve-3d;
+  opacity: 0;
+  transition: all 0.75s linear;
+}
+
+#card.turned > .back {
+  opacity: 1;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+
+
+
+#prev,
+#next {
+  position: relative;
+  height: 0;
+  width: 0;
+  display: block;
+  margin: 25px;
+  border: none;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  padding: 0;
+  background: transparent;
+  transition: 0.3s ease-in-out;
+}
+
+#prev {
+  border-right: 20px solid #F9C2A2;
+}
+
+#prev:not([disabled]):hover {
+  transform: translateX(-15px);
+  border-right: 20px solid #B887C2;
+}
+
+#next {
+  border-left: 20px solid #F9C2A2;
+}
+
+#next:not([disabled]):hover {
+  transform: translateX(15px);
+  border-left: 20px solid #B887C2;
+}
+
+#filter {
+  border: 1px solid red;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#prev:disabled {
+  border-right: 20px solid #4d4d4d;
+  cursor: not-allowed;
+}
+
+#next:disabled {
+  border-left: 20px solid #4d4d4d;
+  cursor: not-allowed;
+}
+
+/***** SCROLLBAR (XS VIEWPORTS ONLY) *****/
+
+.back::-webkit-scrollbar {
+  width: 0.75em;
+}
+
+.back::-webkit-scrollbar-track {
+  box-shadow: none;
+}
+
+.back::-webkit-scrollbar-thumb {
+  background-color: #212121;
+  outline: none;
+}
+
+/***** MEDIA QUERIES *****/
+
+@media (max-width: 580px) {
+  button {
+    border-top: 80px solid transparent;
+    border-bottom: 80px solid transparent;
+  }
+
+  #prev {
+    border-right: 30px solid #212121;
+  }
+
+  #prev:not([disabled]):hover {
+    border-right: 30px solid #4d4d4d;
+  }
+
+  #next {
+    border-left: 30px solid #212121;
+  }
+
+  #next:not([disabled]):hover  {
+    border-left: 30px solid #4d4d4d;
+  }
+  .back {
+    display: initial;
+    overflow-y: scroll;
+  }
+}
